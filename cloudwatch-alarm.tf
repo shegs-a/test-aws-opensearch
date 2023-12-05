@@ -10,8 +10,8 @@ resource "aws_cloudwatch_metric_alarm" "prod-alarm" {
   threshold                 = 0.8
   alarm_description         = "This metric monitors opensearch utilization and raises an alarm once the utilization hits 80%"
   actions_enabled           = "true"
-  alarm_actions             = [arn:aws:sns:us-east-1:467194453264:Default_CloudWatch_Alarms_Topic:6de8dac7-5bb4-4ac6-81b4-1a722a54b0d3]
-  ok_actions                = [arn:aws:sns:us-east-1:467194453264:Default_CloudWatch_Alarms_Topic:6de8dac7-5bb4-4ac6-81b4-1a722a54b0d3]
+  alarm_actions             = [arn:aws:sns:us-east-1:467194453264:Default_CloudWatch_Alarms_Topic]
+  ok_actions                = [arn:aws:sns:us-east-1:467194453264:Default_CloudWatch_Alarms_Topic]
 
   insufficient_data_actions = [arn:aws:sns:us-east-1:467194453264:Default_CloudWatch_Alarms_Topic:6de8dac7-5bb4-4ac6-81b4-1a722a54b0d3]
 
