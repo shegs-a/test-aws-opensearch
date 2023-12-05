@@ -1,5 +1,5 @@
-resource "aws_cloudwatch_metric_alarm" "prod-alarm-2" {
-  alarm_name                = "op-observability-cloudwatch-alarm-2"
+resource "aws_cloudwatch_metric_alarm" "prod-alarm" {
+  alarm_name                = "op-observability-cloudwatch-alarm"
   comparison_operator       = "GreaterThanOrEqualToThreshold"
   evaluation_periods        = 1
   metric_name               = "OpenSearchClusterUsedSpace"
