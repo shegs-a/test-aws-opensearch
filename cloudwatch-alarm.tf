@@ -13,6 +13,6 @@ resource "aws_cloudwatch_metric_alarm" "prod-alarm" {
   alarm_actions             = "arn:aws:sns:us-east-1:467194453264:Default_CloudWatch_Alarms_Topic"
   ok_actions                = "arn:aws:sns:us-east-1:467194453264:Default_CloudWatch_Alarms_Topic"
 
-  insufficient_data_actions = "arn:aws:sns:us-east-1:467194453264:Default_CloudWatch_Alarms_Topics"
+  insufficient_data_actions = []
 
 }
