@@ -1,13 +1,16 @@
 resource "aws_cloudwatch_metric_alarm" "prod-alarm" {
-  alarm_name                = "op-observability-cloudwatch-alarm"
-  comparison_operator       = "GreaterThanOrEqualToThreshold"
+  alarm_name                = "${var.env}-alarm"
+  comparison_operator       = "LessThanThreshold"
   evaluation_periods        = 1
-  metric_name               = "OpenSearchClusterUsedSpace"
+  metric_name               = "FreeStorageSpace"
   namespace                 = "AWS/ES"
+  threshold                 = 0.2
   period                    = 60
-  statistic                 = "Maximum"
-  
-  threshold                 = 0.8
+  statistic                 = "Minimum"
+  dimensions = {
+    DomainName = var.domain_name
+    ClientId   = var.account_id
+  }
   alarm_description         = "This metric monitors opensearch utilization and raises an alarm once the utilization hits 80%"
   actions_enabled           = "true"
   alarm_actions             = ["arn:aws:sns:us-east-1:467194453264:Default_CloudWatch_Alarms_Topic"]
